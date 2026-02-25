@@ -1,16 +1,102 @@
-
   <!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Eastfield by Urbanest Realty | Luxury 3BHK Apartments in Hoskote, East Bangalore</title>
-      <script type="module" crossorigin src="/assets/index-Dfh3HuwT.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-BwwkFimr.css">
+
+      <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NK5G0BBMWT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NK5G0BBMWT');
+  debug_mode: true
+</script>
+
+<!-- Page Time Tracking -->
+<script>
+  let pageStartTime = Date.now();
+
+  window.addEventListener("beforeunload", function () {
+    const totalTime = Math.round((Date.now() - pageStartTime) / 1000);
+
+    if (typeof gtag !== "undefined") {
+      gtag('event', 'page_time_spent', {
+        page: window.location.pathname,
+        time_seconds: totalTime
+      });
+    }
+
+    console.log("Total page time:", totalTime);
+  });
+</script>
+
+      <script type="module" crossorigin src="/eastfield/assets/index-C2QWoKya.js"></script>
+      <link rel="stylesheet" crossorigin href="/eastfield/assets/index-BwwkFimr.css">
     </head>
 
     <body>
       <div id="root"></div>
+      
+<!-- Section Tracking Script (React Compatible) -->
+<script>
+  function initSectionTracking() {
+    if (typeof gtag === "undefined") return;
+
+    const sections = document.querySelectorAll("section[id]");
+
+    if (!sections.length) {
+      setTimeout(initSectionTracking, 1000);
+      return;
+    }
+
+    let activeSection = null;
+    let sectionStartTime = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        
+     if (entry.isIntersecting) {
+
+  const sectionId = entry.target.id;
+
+  // Prevent duplicate firing
+  if (activeSection === sectionId) return;
+
+  if (activeSection && sectionStartTime) {
+    const timeSpent = Math.round((Date.now() - sectionStartTime) / 1000);
+
+    gtag('event', 'section_time_spent', {
+      section_name: activeSection,
+      time_seconds: timeSpent
+    });
+  }
+
+  activeSection = sectionId;
+  sectionStartTime = Date.now();
+
+  gtag('event', 'section_view', {
+    section_name: activeSection
+  });
+
+  console.log("Section view:", activeSection);
+}
+
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  }
+
+  window.addEventListener("load", function () {
+    setTimeout(initSectionTracking, 1500);
+  });
+</script>
+      
     </body>
   </html>
   
